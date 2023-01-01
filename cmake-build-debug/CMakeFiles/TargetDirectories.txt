@@ -1,0 +1,3 @@
+E:/Assessments_UOL/Advanced C++/Assingment - 2B/cmake-build-debug/CMakeFiles/Assingment___2B.dir
+E:/Assessments_UOL/Advanced C++/Assingment - 2B/cmake-build-debug/CMakeFiles/edit_cache.dir
+E:/Assessments_UOL/Advanced C++/Assingment - 2B/cmake-build-debug/CMakeFiles/rebuild_cache.dir
