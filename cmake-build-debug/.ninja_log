@@ -1,0 +1,4 @@
+# ninja log v5
+4	1472	6948819870522271	CMakeFiles/Alloc.dir/AllocationSystem.cpp.obj	829518e91dda3e4c
+3	581	6948821277413346	CMakeFiles/Alloc.dir/GenAlloc.cpp.obj	75dcdbf5dc9e01c8
+581	770	6948821279278243	Alloc.exe	6a4f022ce7467232

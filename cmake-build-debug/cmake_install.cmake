@@ -1,4 +1,4 @@
-# Install script for directory: E:/Assessments_UOL/Advanced C++/Assingment - 2B
+# Install script for directory: E:/Assessments_UOL/Advanced C++/Assingment---2B
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "E:/Assessments_UOL/Advanced C++/Assingment - 2B/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "E:/Assessments_UOL/Advanced C++/Assingment---2B/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

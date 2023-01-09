@@ -1,0 +1,2 @@
+I tried to implement checkAlloc as i am a group of one and was able to partially implement except it doesn't check for the below example
+Student xx is allocated project y but project z is higher on their preference list, while student ww is allocated project z but project y is higher on their preference list

@@ -18,62 +18,51 @@ int main(int argc, char* argv[]) {
 
 
     for (int itr = 1; itr < argc; itr++) {
+        file.open(argv[itr], ios::in);
         switch (itr) {
             case 1: {
-                file.open(argv[itr], ios::in);
-
                 std::string str;
                 while (std::getline(file, str))
                 {
                     supervisorFile.push_back(new Supervisor(str));
                 }
-
-                file.close();
             }
                 break;
             case 2: {
-                file.open(argv[itr], ios::in);
-
                 std::string str;
                 while (std::getline(file, str))
                 {
                     projectFile.push_back(new Project(str));
                 }
-
-                file.close();
             }
                 break;
             case 3: {
-                file.open(argv[itr], ios::in);
-
                 std::string str;
                 while (std::getline(file, str))
                 {
                     studentFile.push_back(new Student(str));
                 }
-
-                file.close();
             }
                 break;
             case 4: {
-                file.open(argv[itr], ios::in | ios::out | ios::trunc);
-
-                ProjectAllocator* projectAllocator = new ProjectAllocator(supervisorFile, projectFile, studentFile, allocFile);
-                projectAllocator->allocateProject();
-                string out_string = projectAllocator->print();
-
-                file << out_string;
-
-                file.close();
-                delete projectAllocator;
+                std::string str;
+                while (std::getline(file, str))
+                {
+                    allocFile.push_back(new Alloc(str));
+                }
             }
                 break;
 
             default:
                 break;
         }
+
+        file.close();
     }
 
+    ProjectAllocator* projectAllocator = new ProjectAllocator(supervisorFile, projectFile, studentFile, allocFile);
+    projectAllocator->validateAllocation();
+    delete projectAllocator;
 
     return 0;
 }

@@ -7,22 +7,26 @@ CXX     = g++
 # level, outputs debugging info for gdb, and C++ version to use.
 CXXFLAGS = -O0 -g3 -std=c++17
 
+# This is a slightly more involved example: suppose you have a class
+# in files Alloc.h and Alloc.cpp, and two further files GenAlloc.cpp
+# and CheckAlloc.cpp that uses this class. This makefile will produce
+# the two required executables.
+
 All: all
-all: main GenAlloc
+all: GenAlloc CheckAlloc
 
-main: main.cpp ProjectAllocationSystem.o
-	$(CXX) $(CXXFLAGS) main.cpp ProjectAllocationSystem.o -o main
+GenAlloc: GenAlloc.cpp AllocationSystem.o
+	$(CXX) $(CXXFLAGS) GenAlloc.cpp AllocationSystem.o -o GenAlloc
 
-# The -c command produces the object file
-ProjectAllocationSystem.o: ProjectAllocationSystem.cpp ProjectAllocationSystem.h
-	$(CXX) $(CXXFLAGS) -c ProjectAllocationSystem.cpp -o ProjectAllocationSystem.o
+CheckAlloc: CheckAlloc.cpp AllocationSystem.o
+	$(CXX) $(CXXFLAGS) CheckAlloc.cpp AllocationSystem.o -o CheckAlloc
 
-GenAlloc: GenAlloc.cpp GenAlloc.h ProjectAllocationSystem.o
-	$(CXX) $(CXXFLAGS) GenAlloc.cpp ProjectAllocationSystem.o -o GenAlloc
+AllocationSystem.o: AllocationSystem.cpp AllocationSystem.h
+	$(CXX) $(CXXFLAGS) -c AllocationSystem.cpp -o AllocationSystem.o
 
 # Some cleanup functions, invoked by typing "make clean" or "make deepclean"
 deepclean:
-	rm -f *~ *.o GenAlloc main main.exe *.stackdump
+	rm -f *~ *.o GenAlloc CheckAlloc *.stackdump
 
 clean:
 	rm -f *~ *.o *.stackdump
